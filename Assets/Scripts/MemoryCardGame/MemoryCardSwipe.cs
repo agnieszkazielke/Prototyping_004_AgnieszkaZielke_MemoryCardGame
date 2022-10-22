@@ -18,6 +18,8 @@ public class MemoryCardSwipe : MonoBehaviour
         [SerializeField]
         private GameObject _emptyCarouselVisuals;
 
+        [SerializeField] private Logger _debugLogger;
+
         public int CurrentChildIndex => _currentChildIndex;
 
         public RectTransform ContentArea => _content;
@@ -36,8 +38,11 @@ public class MemoryCardSwipe : MonoBehaviour
         public void ScrollRight()
         {
             if (_contentRevealed) return;
+           
+           _currentChildIndex++;
            _scrollVal = Time.time;
            _contentRevealed = true;
+           _debugLogger.LogInfo("contents revealed");
            
             /*
             if (_content.childCount <= 1)
@@ -63,8 +68,10 @@ public class MemoryCardSwipe : MonoBehaviour
         public void ScrollLeft()
         {
             if (_contentRevealed) return;
+            _currentChildIndex++;
             _scrollVal = Time.time;
             _contentRevealed = true;
+            _debugLogger.LogInfo("contents revealed");
 
             /*
              if (_content.childCount <= 1)
