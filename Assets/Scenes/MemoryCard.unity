@@ -1115,7 +1115,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 2800000, guid: be89d100cd1db2c41a534fe63c258f06, type: 3}
+  m_Texture: {fileID: 2800000, guid: db6fc078e5be71e4392f7ccb6d57958c, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -1332,7 +1332,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 40fece458fc28b244be0f13bec5a2975, type: 2}
+  - {fileID: 2100000, guid: 02d76fe6c8a39df45b1dd6b4bd3ebef2, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2227,7 +2227,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 2800000, guid: 11c3eef3b09d88c4891ad2e6fc11057f, type: 3}
+  m_Texture: {fileID: 2800000, guid: 86996acecf0fa9144a585e789b1df240, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -2768,7 +2768,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7089335268854487539}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 80e08504c1d9ec34fbdd09d754ea8b5d, type: 3}
   m_Name: 
@@ -2831,6 +2831,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7089335268854487538}
   - component: {fileID: 7089335268854487537}
+  - component: {fileID: 7089335268854487540}
   m_Layer: 5
   m_Name: Carousel
   m_TagString: Untagged
@@ -2838,6 +2839,45 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &7089335268854487540
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7089335268854487539}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5383143d8fbc43a4683a5aafe9b0cbe8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _viewport: {fileID: 7089335269501289387}
+  _content: {fileID: 7089335268472150936}
+  _easeCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  _emptyCarouselVisuals: {fileID: 0}
 --- !u!222 &7089335268926366188
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3189,7 +3229,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: d94b79a629e4ab947b4a390741e44b0a, type: 2}
+  - {fileID: 2100000, guid: 02d76fe6c8a39df45b1dd6b4bd3ebef2, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
