@@ -136,8 +136,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.7, y: 0.5, z: 0.5}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0.4697165, y: 0.40814108, z: 0.27462047}
+  m_Center: {x: 0.061192006, y: -0.04592946, z: 0.05926335}
 --- !u!1 &2934733560277392524
 GameObject:
   m_ObjectHideFlags: 0
@@ -181,8 +181,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.8, y: 0.6, z: 0.6}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0.693052, y: 0.6, z: 0.6}
+  m_Center: {x: 0.025974482, y: 0, z: 0}
 --- !u!1 &3653588737027743782
 GameObject:
   m_ObjectHideFlags: 0
@@ -1784,7 +1784,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   revealImage: {fileID: 179861535665148865}
   _cardSwipe: {fileID: 8597887303775426521}
-  _cardOpen: 0
+  _debugLogger: {fileID: 0}
 --- !u!1 &9218722493163006194
 GameObject:
   m_ObjectHideFlags: 0
