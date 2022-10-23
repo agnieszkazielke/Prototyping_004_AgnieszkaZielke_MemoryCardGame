@@ -24,11 +24,11 @@ public class MemoryCardSwipe : MonoBehaviour
 
         public RectTransform ContentArea => _content;
 
+        private bool _cardScrolled = false;
         private int _currentChildIndex = 0;
         private float _scrollVal = 0;
 
-        private bool _contentRevealed = false;
-
+        
         protected virtual void Start()
         {
             Assert.IsNotNull(_viewport);
@@ -37,11 +37,11 @@ public class MemoryCardSwipe : MonoBehaviour
 
         public void ScrollRight()
         {
-            if (_contentRevealed) return;
+            if (_cardScrolled) return;
            
            _currentChildIndex++;
            _scrollVal = Time.time;
-           _contentRevealed = true;
+           _cardScrolled = true;
            _debugLogger.LogInfo("contents revealed");
            
             /*
@@ -67,10 +67,10 @@ public class MemoryCardSwipe : MonoBehaviour
 
         public void ScrollLeft()
         {
-            if (_contentRevealed) return;
+            if (_cardScrolled) return;
             _currentChildIndex++;
             _scrollVal = Time.time;
-            _contentRevealed = true;
+            _cardScrolled = true;
             _debugLogger.LogInfo("contents revealed");
 
             /*
@@ -92,6 +92,16 @@ public class MemoryCardSwipe : MonoBehaviour
             _scrollVal = Time.time;
              */
 
+        }
+
+
+        public void ScrollBack()
+        {
+            if (!_cardScrolled) return;
+            _currentChildIndex--;
+            _scrollVal = Time.time;
+            _cardScrolled = false;
+            _debugLogger.LogInfo("card covered");
         }
 
         private RectTransform GetCurrentChild()
