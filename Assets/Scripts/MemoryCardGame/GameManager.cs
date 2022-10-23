@@ -59,12 +59,12 @@ public class GameManager : MonoBehaviour
 
         _openCard1 = null;
         _openCard2 = null;
+        _debugLogger.LogInfo("Cards reset");
+        
 
     }
     
     
-
-
     // Update is called once per frame
     void Update()
     {

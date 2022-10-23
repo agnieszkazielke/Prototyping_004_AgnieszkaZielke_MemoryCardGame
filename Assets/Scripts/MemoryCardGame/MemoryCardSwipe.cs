@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Assertions;
 using UnityEngine.UI;
@@ -44,24 +45,6 @@ public class MemoryCardSwipe : MonoBehaviour
            _cardScrolled = true;
            _debugLogger.LogInfo("contents revealed");
            
-            /*
-            if (_content.childCount <= 1)
-            {
-                return;
-            }
-            else if (_currentChildIndex > 0)
-            {
-                RectTransform currentChild = GetCurrentChild();
-                _content.GetChild(0).SetAsLastSibling();
-                LayoutRebuilder.ForceRebuildLayoutImmediate(_content);
-                ScrollToChild(currentChild, 1);
-            }
-            else
-            {
-                _currentChildIndex++;
-            }
-            _scrollVal = Time.time;
-            */
         }
         
 
@@ -73,42 +56,29 @@ public class MemoryCardSwipe : MonoBehaviour
             _cardScrolled = true;
             _debugLogger.LogInfo("contents revealed");
 
-            /*
-             if (_content.childCount <= 1)
-            {
-                return;
-            }
-            else if (_currentChildIndex < _content.childCount - 1)
-            {
-                RectTransform currentChild = GetCurrentChild();
-                _content.GetChild(_content.childCount - 1).SetAsFirstSibling();
-                LayoutRebuilder.ForceRebuildLayoutImmediate(_content);
-                ScrollToChild(currentChild, 1);
-            }
-            else
-            {
-                _currentChildIndex--;
-            }
-            _scrollVal = Time.time;
-             */
-
         }
 
-
+ 
         public void ScrollBack()
         {
-            if (!_cardScrolled) return;
-            _currentChildIndex--;
-            _scrollVal = Time.time;
-            _cardScrolled = false;
-            _debugLogger.LogInfo("card covered");
+            StartCoroutine(DelayedScroll());
         }
 
         private RectTransform GetCurrentChild()
         {
             return _content.GetChild(_currentChildIndex) as RectTransform;
         }
-
+        
+        private IEnumerator DelayedScroll()
+        {
+            yield return new WaitForSeconds(2f);
+            _currentChildIndex--;
+            _scrollVal = Time.time;
+            _cardScrolled = false;
+            _debugLogger.LogInfo("card covered");
+            
+        }
+        
         private void ScrollToChild(RectTransform child, float amount01)
         {
             if (child == null)
