@@ -2784,6 +2784,26 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 602404237}
+    - target: {fileID: 820755895827309882, guid: e17785d29add17745ae64cc942ddffc5,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0.8301887
+      objectReference: {fileID: 0}
+    - target: {fileID: 820755895827309882, guid: e17785d29add17745ae64cc942ddffc5,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 820755895827309882, guid: e17785d29add17745ae64cc942ddffc5,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0.40244487
+      objectReference: {fileID: 0}
+    - target: {fileID: 820755895827309882, guid: e17785d29add17745ae64cc942ddffc5,
+        type: 3}
+      propertyPath: m_Intensity
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2744786182647540170, guid: e17785d29add17745ae64cc942ddffc5,
         type: 3}
       propertyPath: _hand
@@ -2844,6 +2864,11 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 602404237}
+    - target: {fileID: 7905726431336581128, guid: e17785d29add17745ae64cc942ddffc5,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8597887303775426521, guid: e17785d29add17745ae64cc942ddffc5,
         type: 3}
       propertyPath: _debugLogger
@@ -17182,6 +17207,32 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 579068994}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1721513566 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8034388780931739126, guid: e17785d29add17745ae64cc942ddffc5,
+    type: 3}
+  m_PrefabInstance: {fileID: 841723144}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1721513569
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1721513566}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Version: 1
+  m_UsePipelineSettings: 1
+  m_AdditionalLightsShadowResolutionTier: 2
+  m_LightLayerMask: 1
+  m_CustomShadowLayers: 0
+  m_ShadowLayerMask: 1
+  m_LightCookieSize: {x: 1, y: 1}
+  m_LightCookieOffset: {x: 0, y: 0}
 --- !u!43 &1722380455
 Mesh:
   m_ObjectHideFlags: 0

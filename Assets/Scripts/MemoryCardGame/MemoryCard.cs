@@ -10,6 +10,8 @@ public class MemoryCard : MonoBehaviour
     public RawImage revealImage;
     
     [SerializeField] private MemoryCardSwipe _cardSwipe;
+    [SerializeField] private GameObject _cardEnsemble;
+    [SerializeField] private ParticleSystem _fireworkEffect;
     [SerializeField] private Logger _debugLogger;
 
     private bool _cardOpen = false;
@@ -46,6 +48,9 @@ public class MemoryCard : MonoBehaviour
     
     private IEnumerator DestroyCard()
     {
+        yield return new WaitForSeconds(1f);
+        _fireworkEffect.gameObject.SetActive(true);
+        _cardEnsemble.gameObject.SetActive(false);
         yield return new WaitForSeconds(2f);
         Destroy(gameObject);
 
