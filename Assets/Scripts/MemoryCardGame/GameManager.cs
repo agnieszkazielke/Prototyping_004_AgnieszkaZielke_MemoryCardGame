@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using TMPro;
 using UnityEngine.Assertions;
 using UnityEngine.Events;
 
@@ -13,8 +14,13 @@ public class GameManager : MonoBehaviour
     [SerializeField] private List<Texture> _cardImageTextures = new List<Texture>();
     [SerializeField] private List<Texture> _selectedCardImageTextures = new List<Texture>();
     [SerializeField] private MemoryCard[] _memoryCards;
+
+    [SerializeField] private TMP_Text _tapsText;
+    [SerializeField] private TMP_Text _cardsText;
     private MemoryCard _openCard1;
     private MemoryCard _openCard2;
+    private int _tapsLeft;
+    private int _cardsLeft;
     private System.Random _random = new System.Random();  
 
     private void Awake()
@@ -32,7 +38,12 @@ public class GameManager : MonoBehaviour
         SelectCardImageTextures();
         ShuffleCards(_selectedCardImageTextures);
         ApplyTexturesToCards();
-      
+
+        _tapsLeft = _memoryCards.Length * 4;
+        _cardsLeft = _memoryCards.Length;
+        UpdateTapsText();
+        UpdateCardsText();
+
     }
 
     private void ShuffleCards(List<Texture> list)  
@@ -82,7 +93,10 @@ public class GameManager : MonoBehaviour
             _debugLogger.LogInfo("openCard2 taken");
             CheckCards();
         }
-        
+
+        _tapsLeft--;
+        UpdateTapsText();
+
     }
 
     private void CheckCards()
@@ -94,6 +108,8 @@ public class GameManager : MonoBehaviour
             _debugLogger.LogInfo("Cards match!");
             _openCard1.RemoveCard();
             _openCard2.RemoveCard();
+            _cardsLeft = _cardsLeft - 2;
+            UpdateCardsText();
         }
 
         else
@@ -109,12 +125,16 @@ public class GameManager : MonoBehaviour
         
 
     }
-    
-    
-    
-    // Update is called once per frame
-    void Update()
+
+    private void UpdateCardsText()
     {
-        
+        _cardsText.text = "Cards: " + _cardsLeft.ToString();
     }
+    private void UpdateTapsText()
+    {
+        _tapsText.text = "Taps: " + _tapsLeft.ToString();
+    }
+    
+    
+
 }
