@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,8 +10,13 @@ public class MemoryCard : MonoBehaviour
 
     [SerializeField] private MemoryCardSwipe _cardSwipe;
 
-    private bool _cardOpen = false;
+    public bool _cardOpen = false;
+    
 
+    private void Start()
+    {
+        GameManager.Instance.onCardsChecked.AddListener(CoverCard);
+    }
 
     public void RevealCard()
     {
@@ -21,8 +27,13 @@ public class MemoryCard : MonoBehaviour
 
     public void CoverCard()
     {
-        _cardSwipe.ScrollBack();
         _cardOpen = false;
+        _cardSwipe.ScrollBack();
+        
     }
 
+    private void OnDestroy()
+    {
+        GameManager.Instance.onCardsChecked.RemoveAllListeners();
+    }
 }

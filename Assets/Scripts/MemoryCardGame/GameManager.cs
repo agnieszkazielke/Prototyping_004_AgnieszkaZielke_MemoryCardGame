@@ -1,15 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
+    public UnityEvent onCardsChecked;
     
     [SerializeField] private Logger _debugLogger;
     
-    private MemoryCard _openCard1;
-    private MemoryCard _openCard2;
+    [SerializeField] private MemoryCard _openCard1;
+    [SerializeField] private MemoryCard _openCard2;
 
     private void Awake()
     {
@@ -53,8 +55,10 @@ public class GameManager : MonoBehaviour
         else
         {
             _debugLogger.LogInfo("Cards don't match!"); 
-            _openCard1.CoverCard();
-            _openCard2.CoverCard();
+            onCardsChecked.Invoke();
+            
+            //_openCard1.CoverCard();
+            //_openCard2.CoverCard();
         }
 
         _openCard1 = null;
@@ -63,6 +67,7 @@ public class GameManager : MonoBehaviour
         
 
     }
+
     
     
     // Update is called once per frame
