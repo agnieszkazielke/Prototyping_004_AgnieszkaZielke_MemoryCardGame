@@ -14,10 +14,8 @@ public class MemoryCard : MonoBehaviour
     [SerializeField] private GameObject _cardEnsemble;
     [SerializeField] private ParticleSystem _fireworkEffect;
     [SerializeField] private Logger _debugLogger;
-    
     [SerializeField] private AudioSource _source;
     [SerializeField] private AudioClip _clip;
-
     private bool _cardOpen = false;
     
 
