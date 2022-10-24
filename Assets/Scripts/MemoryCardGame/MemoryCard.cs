@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,11 +9,12 @@ public class MemoryCard : MonoBehaviour
 {
     
     public RawImage revealImage;
-    
+    public TMP_Text cardTitle;
     [SerializeField] private MemoryCardSwipe _cardSwipe;
     [SerializeField] private GameObject _cardEnsemble;
     [SerializeField] private ParticleSystem _fireworkEffect;
     [SerializeField] private Logger _debugLogger;
+    
     [SerializeField] private AudioSource _source;
     [SerializeField] private AudioClip _clip;
 
@@ -23,6 +25,7 @@ public class MemoryCard : MonoBehaviour
     {
         if (_cardOpen) return;
         GameManager.Instance.OpenCard(this);
+        cardTitle.gameObject.SetActive(true);
         _cardOpen = true;
     }
 
@@ -39,6 +42,7 @@ public class MemoryCard : MonoBehaviour
     private IEnumerator SetFalse()
     {
         yield return new WaitForSeconds(2f);
+        cardTitle.gameObject.SetActive(false);
         _cardOpen = false;
 
     }

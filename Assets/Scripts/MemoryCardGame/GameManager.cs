@@ -73,6 +73,8 @@ public class GameManager : MonoBehaviour
         for (int i = 0; i < _memoryCards.Length; i++)
         {
             _memoryCards[i].revealImage.texture = _selectedCardImageTextures[i];
+            _memoryCards[i].cardTitle.text = _memoryCards[i].revealImage.texture.name;
+            _memoryCards[i].cardTitle.gameObject.SetActive(false);
         }
     }
     
