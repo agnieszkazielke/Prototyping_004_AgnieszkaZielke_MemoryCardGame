@@ -13,6 +13,8 @@ public class MemoryCard : MonoBehaviour
     [SerializeField] private GameObject _cardEnsemble;
     [SerializeField] private ParticleSystem _fireworkEffect;
     [SerializeField] private Logger _debugLogger;
+    [SerializeField] private AudioSource _source;
+    [SerializeField] private AudioClip _clip;
 
     private bool _cardOpen = false;
     
@@ -49,11 +51,18 @@ public class MemoryCard : MonoBehaviour
     private IEnumerator DestroyCard()
     {
         yield return new WaitForSeconds(1f);
+        PlayMatchCardSound();
         _fireworkEffect.gameObject.SetActive(true);
         _cardEnsemble.gameObject.SetActive(false);
         yield return new WaitForSeconds(2f);
         Destroy(gameObject);
 
+    }
+
+    private void PlayMatchCardSound()
+    {
+        _source.clip = _clip;
+        _source.Play();
     }
 
 
