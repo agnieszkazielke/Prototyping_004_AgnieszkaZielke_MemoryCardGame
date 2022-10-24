@@ -2830,6 +2830,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8597887305563108545}
   - component: {fileID: 8597887305563108547}
+  - component: {fileID: 9125776078408283460}
   m_Layer: 0
   m_Name: MemoryCard
   m_TagString: Untagged
@@ -2875,6 +2876,19 @@ MonoBehaviour:
   _cardEnsemble: {fileID: 7905726431336581128}
   _fireworkEffect: {fileID: 982719838684520891}
   _debugLogger: {fileID: 0}
+--- !u!114 &9125776078408283460
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8597887305563108544}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4c00339f63ec9d4c937d22c5ab3be7d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _hoverMagnitude: 0.02
 --- !u!1 &8699093213529378680
 GameObject:
   m_ObjectHideFlags: 0
