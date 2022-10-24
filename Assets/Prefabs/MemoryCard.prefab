@@ -2888,7 +2888,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4c00339f63ec9d4c937d22c5ab3be7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _hoverMagnitude: 0.02
+  _state: 0
+  _hoverMagnitude: 0.03
 --- !u!1 &8699093213529378680
 GameObject:
   m_ObjectHideFlags: 0
