@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private TMP_Text _tapsText;
     [SerializeField] private TMP_Text _cardsText;
+    [SerializeField] private Canvas _menuCanvas;
     private MemoryCard _openCard1;
     private MemoryCard _openCard2;
     private int _tapsLeft;
@@ -75,6 +76,18 @@ public class GameManager : MonoBehaviour
             _memoryCards[i].revealImage.texture = _selectedCardImageTextures[i];
             _memoryCards[i].cardTitle.text = _memoryCards[i].revealImage.texture.name;
             _memoryCards[i].cardTitle.gameObject.SetActive(false);
+        }
+    }
+
+    public void ToggleMenu()
+    {
+        if (_menuCanvas.gameObject.activeSelf)
+        {
+            _menuCanvas.gameObject.SetActive(false);
+        }
+        else
+        {
+            _menuCanvas.gameObject.SetActive(true);
         }
     }
     

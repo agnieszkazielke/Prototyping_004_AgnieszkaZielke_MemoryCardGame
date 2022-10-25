@@ -136,8 +136,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.4697165, y: 0.40814108, z: 0.27462047}
-  m_Center: {x: 0.061192006, y: -0.04592946, z: 0.05926335}
+  m_Size: {x: 0.4697165, y: 0.40814108, z: 0.46187395}
+  m_Center: {x: 0.06119201, y: -0.045929458, z: -0.034363233}
 --- !u!1 &2934733560277392524
 GameObject:
   m_ObjectHideFlags: 0
@@ -181,8 +181,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.7735843, y: 0.52680457, z: 0.39723915}
-  m_Center: {x: 0.0662404, y: -0.09036415, z: 0.10138042}
+  m_Size: {x: 0.5246391, y: 0.52680457, z: 0.5427292}
+  m_Center: {x: 0.07179305, y: -0.09036416, z: 0.028635487}
 --- !u!1 &3183653498991125558
 GameObject:
   m_ObjectHideFlags: 0
@@ -1714,6 +1714,8 @@ GameObject:
   - component: {fileID: 8597887305563108545}
   - component: {fileID: 8597887305563108547}
   - component: {fileID: 9125776078408283460}
+  - component: {fileID: 6579798314580189640}
+  - component: {fileID: 7814275585743834233}
   m_Layer: 0
   m_Name: MemoryCard
   m_TagString: Untagged
@@ -1761,7 +1763,23 @@ MonoBehaviour:
   _debugLogger: {fileID: 0}
   _source: {fileID: 7395218510547546841}
   _clip: {fileID: 8300000, guid: 4500e7f1c1b7b1a4b9e78f6ba3a06f11, type: 3}
+  _cardsAnimationScript: {fileID: 0}
+  _hoverMovement: {fileID: 9125776078408283460}
 --- !u!114 &9125776078408283460
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8597887305563108544}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4c00339f63ec9d4c937d22c5ab3be7d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _state: 0
+  _hoverMagnitude: 0.03
+--- !u!114 &6579798314580189640
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1770,11 +1788,101 @@ MonoBehaviour:
   m_GameObject: {fileID: 8597887305563108544}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a4c00339f63ec9d4c937d22c5ab3be7d, type: 3}
+  m_Script: {fileID: 11500000, guid: bb86ba9d4c5126e48bfef9b0c9550e9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _state: 0
-  _hoverMagnitude: 0.03
+  _interactorFilters: []
+  _maxInteractors: -1
+  _maxSelectingInteractors: -1
+  _pointableElement: {fileID: 0}
+  _surface: {fileID: 7840421867392263926}
+  _selectSurface: {fileID: 0}
+  _movementProvider: {fileID: 0}
+--- !u!114 &7814275585743834233
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8597887305563108544}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1464721f2283eb14e94a33e812b47be4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _interactableView: {fileID: 6579798314580189640}
+  _whenHover:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8597887304670504551}
+        m_TargetAssemblyTypeName: UnityEngine.Renderer, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+  _whenUnhover:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8597887304670504551}
+        m_TargetAssemblyTypeName: UnityEngine.Renderer, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _whenSelect:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8597887305563108547}
+        m_TargetAssemblyTypeName: MemoryCard, Assembly-CSharp
+        m_MethodName: RevealCard
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 8597887303775426521}
+        m_TargetAssemblyTypeName: MemoryCardSwipe, Assembly-CSharp
+        m_MethodName: ScrollRight
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _whenUnselect:
+    m_PersistentCalls:
+      m_Calls: []
+  _whenInteractorViewAdded:
+    m_PersistentCalls:
+      m_Calls: []
+  _whenInteractorViewRemoved:
+    m_PersistentCalls:
+      m_Calls: []
+  _whenSelectingInteractorViewAdded:
+    m_PersistentCalls:
+      m_Calls: []
+  _whenSelectingInteractorViewRemoved:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &8699093213529378680
 GameObject:
   m_ObjectHideFlags: 0
@@ -2076,6 +2184,38 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 4750453510779250201}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &5560935764873452360 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 638c06820c60b5e43802e8335b07f104,
+    type: 3}
+  m_PrefabInstance: {fileID: 4750453510779250201}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &785441968924059892
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5560935764873452360}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.48061693, y: 0.48123404, z: 0.48000026}
+  m_Center: {x: 0.20469154, y: 0.24000008, z: 0.44503307}
+--- !u!114 &7840421867392263926
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5560935764873452360}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2140d2b457bea84881488302059889b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _collider: {fileID: 785441968924059892}
 --- !u!1001 &5811185601308464008
 PrefabInstance:
   m_ObjectHideFlags: 0

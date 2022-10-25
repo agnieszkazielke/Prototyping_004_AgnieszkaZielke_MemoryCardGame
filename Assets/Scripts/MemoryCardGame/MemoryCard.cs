@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Oculus.Interaction;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -16,8 +17,27 @@ public class MemoryCard : MonoBehaviour
     [SerializeField] private Logger _debugLogger;
     [SerializeField] private AudioSource _source;
     [SerializeField] private AudioClip _clip;
+    [SerializeField] private CardsCustomAnimation _cardsAnimationScript;
+    [SerializeField] private Hover _hoverMovement;
     private bool _cardOpen = false;
+
+
+    private void Start()
+    {
+        _cardsAnimationScript.onCardsDescended.AddListener(StartHover);
+        _cardsAnimationScript.onCardsAscending.AddListener(StopHover);
+    }
+
+
+    private void StartHover()
+    {
+        _hoverMovement.enabled = true;
+    }
     
+    private void StopHover()
+    {
+        _hoverMovement.enabled = false;
+    }
 
     public void RevealCard()
     {
@@ -57,6 +77,7 @@ public class MemoryCard : MonoBehaviour
         _fireworkEffect.gameObject.SetActive(true);
         _cardEnsemble.gameObject.SetActive(false);
         yield return new WaitForSeconds(2f);
+        //gameObject.SetActive(false);
         Destroy(gameObject);
 
     }
@@ -70,6 +91,7 @@ public class MemoryCard : MonoBehaviour
 
     private void OnDestroy()
     {
-        
+        _cardsAnimationScript.onCardsDescended.RemoveAllListeners();
+        _cardsAnimationScript.onCardsAscending.RemoveAllListeners();
     }
 }
