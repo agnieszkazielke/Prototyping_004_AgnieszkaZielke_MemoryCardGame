@@ -77,8 +77,8 @@ public class MemoryCard : MonoBehaviour
         _fireworkEffect.gameObject.SetActive(true);
         _cardEnsemble.gameObject.SetActive(false);
         yield return new WaitForSeconds(2f);
-        //gameObject.SetActive(false);
-        Destroy(gameObject);
+        gameObject.SetActive(false);
+        //Destroy(gameObject);
 
     }
 
